@@ -7,14 +7,12 @@ import {
 import { isAxiosError } from 'axios'
 import { ApiErrorCode, ApiErrorResponse } from '@/apis'
 import React from 'react'
-import { createStandaloneToast } from '@chakra-ui/react'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { toaster } from '@/components/ui/toaster'
 
 interface ReactQueryProviderProps {
 	children: React.ReactNode
 }
-
-const { toast } = createStandaloneToast()
 
 const queryClient = new QueryClient({
 	defaultOptions: {
@@ -27,8 +25,8 @@ const queryClient = new QueryClient({
 		onError: (error, query) => {
 			if (!isAxiosError<ApiErrorResponse>(error) || query.meta?.ignoreError)
 				return
-			toast({
-				status: 'error',
+			toaster.create({
+				type: 'error',
 				title: '조회 중 에러가 발생하였습니다.',
 			})
 		},
@@ -37,14 +35,14 @@ const queryClient = new QueryClient({
 		onError: (error) => {
 			if (!isAxiosError<ApiErrorResponse>(error)) return
 			if (error.response?.data.error_code === ApiErrorCode.UNAUTHORIZED) {
-				toast({
-					status: 'error',
+				toaster.create({
+					type: 'error',
 					title: '비로그인 회원',
 					description: '로그인한 회원만 접근 가능한 기능입니다.',
 				})
 			} else {
-				toast({
-					status: 'error',
+				toaster.create({
+					type: 'error',
 					title: error.response?.data.error_message ?? error.message,
 				})
 			}

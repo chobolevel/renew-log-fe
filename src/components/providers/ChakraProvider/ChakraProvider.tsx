@@ -1,6 +1,7 @@
 import {
 	ChakraProvider as _ChakraProvider,
-	extendTheme,
+	createSystem,
+	defaultConfig,
 } from '@chakra-ui/react'
 import React from 'react'
 import { fonts } from '@/constants'
@@ -9,18 +10,22 @@ interface ChakraProviderProps {
 	children: React.ReactNode
 }
 
-const theme = extendTheme({
-	colors: {
-		purple: '#5046e5',
-	},
-	fonts: {
-		heading: fonts.oneMobileRegular.style.fontFamily,
-		body: fonts.oneMobileRegular.style.fontFamily,
+const system = createSystem(defaultConfig, {
+	theme: {
+		tokens: {
+			colors: {
+				purple: { value: '#5046e5' },
+			},
+			fonts: {
+				heading: { value: fonts.oneMobileRegular.style.fontFamily },
+				body: { value: fonts.oneMobileRegular.style.fontFamily },
+			},
+		},
 	},
 })
 
 const ChakraProvider = ({ children }: ChakraProviderProps) => {
-	return <_ChakraProvider theme={theme}>{children}</_ChakraProvider>
+	return <_ChakraProvider value={system}>{children}</_ChakraProvider>
 }
 
 export default ChakraProvider

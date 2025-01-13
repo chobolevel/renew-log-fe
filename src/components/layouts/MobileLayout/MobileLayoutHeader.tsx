@@ -1,12 +1,11 @@
+import { Flex, Text } from '@chakra-ui/react'
 import {
-	Flex,
-	Menu,
-	MenuButton,
+	MenuContent,
 	MenuItem,
-	MenuList,
-	Text,
-} from '@chakra-ui/react'
-import { HamburgerIcon } from '@chakra-ui/icons'
+	MenuRoot,
+	MenuTrigger,
+} from '@/components/ui/menu'
+import { GiHamburgerMenu } from 'react-icons/gi'
 
 const MobileLayoutHeader = () => {
 	return (
@@ -32,17 +31,17 @@ const MobileLayoutHeader = () => {
 						Cholo
 					</Text>
 				</Flex>
-				<Menu>
-					<MenuButton>
-						<HamburgerIcon fontSize={30} />
-					</MenuButton>
-					<MenuList>
-						<MenuItem>Posts</MenuItem>
-						<MenuItem>Tags</MenuItem>
-						<MenuItem>Guest Books</MenuItem>
-						<MenuItem>Channels</MenuItem>
-					</MenuList>
-				</Menu>
+				<MenuRoot>
+					<MenuTrigger asChild>
+						<GiHamburgerMenu size={30} />
+					</MenuTrigger>
+					<MenuContent>
+						<MenuItem value={'posts'}>Posts</MenuItem>
+						<MenuItem value={'tags'}>Tags</MenuItem>
+						<MenuItem value={'guest books'}>Guest Books</MenuItem>
+						<MenuItem value={'channels'}>Channels</MenuItem>
+					</MenuContent>
+				</MenuRoot>
 			</Flex>
 		</Flex>
 	)
