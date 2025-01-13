@@ -1,10 +1,5 @@
 import { Flex, Text } from '@chakra-ui/react'
-import {
-	MenuContent,
-	MenuItem,
-	MenuRoot,
-	MenuTrigger,
-} from '@/components/ui/menu'
+import { MenuContent, MenuItem, MenuRoot, MenuTrigger } from '@/components'
 import { GiHamburgerMenu } from 'react-icons/gi'
 
 const MobileLayoutHeader = () => {

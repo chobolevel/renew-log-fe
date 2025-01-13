@@ -8,7 +8,7 @@ import { isAxiosError } from 'axios'
 import { ApiErrorCode, ApiErrorResponse } from '@/apis'
 import React from 'react'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import { toaster } from '@/components/ui/toaster'
+import { toaster } from '@/components'
 
 interface ReactQueryProviderProps {
 	children: React.ReactNode
