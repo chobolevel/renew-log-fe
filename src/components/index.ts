@@ -8,5 +8,6 @@ export {
 	MobileLayoutHeader,
 	MobileLayoutNav,
 	ResponsiveLayout,
+	UnAuthenticatedLayout,
 } from './layouts'
 export { ChakraProvider, ReactQueryProvider } from './providers'

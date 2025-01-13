@@ -10,3 +10,4 @@ export {
 	MobileLayoutNav,
 } from './MobileLayout'
 export { ResponsiveLayout } from './ResponsiveLayout'
+export { UnAuthenticatedLayout } from './UnAuthenticatedLayout'
