@@ -1,3 +1,12 @@
-export { GeneralLayout } from './GeneralLayout'
-export { MobileLayout } from './MobileLayout'
+export {
+	GeneralLayout,
+	GeneralLayoutFooter,
+	GeneralLayoutHeader,
+} from './GeneralLayout'
+export {
+	MobileLayout,
+	MobileLayoutFooter,
+	MobileLayoutHeader,
+	MobileLayoutNav,
+} from './MobileLayout'
 export { ResponsiveLayout } from './ResponsiveLayout'

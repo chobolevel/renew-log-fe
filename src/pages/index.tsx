@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { images } from '@/constants'
 import { ResponsiveLayout } from '@/components'
+import { Text } from '@chakra-ui/react'
 
 const Home = () => {
 	return (
@@ -30,7 +31,9 @@ const Home = () => {
 				<meta name={'twitter:description'} content={'초로 개발자의 블로그'} />
 				<meta name={'twitter:image'} content={images.logo.src} />
 			</Head>
-			<ResponsiveLayout>123</ResponsiveLayout>
+			<ResponsiveLayout>
+				<Text h={'100vh'}>123</Text>
+			</ResponsiveLayout>
 		</>
 	)
 }

@@ -1,12 +1,14 @@
-import {AppProps} from "next/app";
-import {ChakraProvider} from "@chakra-ui/react";
+import { AppProps } from 'next/app'
+import { ChakraProvider, ReactQueryProvider } from '@/components'
 
 const App = ({ Component, pageProps }: AppProps) => {
-  return (
-    <ChakraProvider>
-      <Component {...pageProps} />
-    </ChakraProvider>
-  )
+	return (
+		<ReactQueryProvider>
+			<ChakraProvider>
+				<Component {...pageProps} />
+			</ChakraProvider>
+		</ReactQueryProvider>
+	)
 }
 
 export default App
