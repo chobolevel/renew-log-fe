@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import { images } from '@/resources'
-import ResponsiveLayout from '@/components/layouts/ResponsiveLayout/ResponsiveLayout'
+import { images } from '@/constants'
+import { ResponsiveLayout } from '@/components'
 
 const Home = () => {
 	return (

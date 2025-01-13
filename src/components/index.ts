@@ -1,1 +1,1 @@
-export { GeneralLayout, MobileLayout } from './layouts'
+export { GeneralLayout, MobileLayout, ResponsiveLayout } from './layouts'
