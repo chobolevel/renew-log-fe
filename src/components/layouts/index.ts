@@ -1,13 +1,4 @@
-export {
-	GeneralLayout,
-	GeneralLayoutFooter,
-	GeneralLayoutHeader,
-} from './GeneralLayout'
-export {
-	MobileLayout,
-	MobileLayoutFooter,
-	MobileLayoutHeader,
-	MobileLayoutNav,
-} from './MobileLayout'
-export { ResponsiveLayout } from './ResponsiveLayout'
-export { UnAuthenticatedLayout } from './UnAuthenticatedLayout'
+export * from './GeneralLayout'
+export * from './MobileLayout'
+export * from './ResponsiveLayout'
+export * from './UnAuthenticatedLayout'

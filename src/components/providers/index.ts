@@ -1,2 +1,2 @@
-export { ChakraProvider } from './ChakraProvider'
-export { ReactQueryProvider } from './ReactQueryProvider'
+export * from './ChakraProvider'
+export * from './ReactQueryProvider'

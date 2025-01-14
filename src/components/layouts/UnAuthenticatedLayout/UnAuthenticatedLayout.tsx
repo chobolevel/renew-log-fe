@@ -7,7 +7,13 @@ interface UnAuthenticatedLayoutProps {
 
 const UnAuthenticatedLayout = ({ children }: UnAuthenticatedLayoutProps) => {
 	return (
-		<Flex w={'100vw'} h={'100vh'} direction={'column'}>
+		<Flex
+			w={'100vw'}
+			h={'100vh'}
+			direction={'column'}
+			justify={'center'}
+			align={'center'}
+		>
 			{children}
 		</Flex>
 	)

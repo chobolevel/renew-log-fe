@@ -21,6 +21,7 @@ export interface ApiErrorResponse {
 export enum ApiErrorCode {
 	ACCESS_CODE = 'ACCESS_CODE',
 	UNAUTHORIZED = 'UNAUTHORIZED',
+	BAD_CREDENTIALS = 'BAD_CREDENTIALS',
 }
 
 export interface Schema {

@@ -7,6 +7,7 @@ export type UserLoginType = 'GENERAL' | 'KAKAO' | 'NAVER' | 'GOOGLE'
 export interface CreateUserRequest {
 	email: string
 	password?: string
+	check_password?: string
 	social_id?: string
 	login_type: UserLoginType
 	nickname: string
