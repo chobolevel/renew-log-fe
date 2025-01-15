@@ -34,6 +34,7 @@ export class Api {
 				},
 			})
 			.then((res) => res.data.data)
+			.catch(() => null)
 	}
 	static post = async <T>(url: string, body?: object) => {
 		return Api.instance

@@ -19,7 +19,7 @@ export interface ApiErrorResponse {
 }
 
 export enum ApiErrorCode {
-	ACCESS_CODE = 'ACCESS_CODE',
+	ACCESS_DENIED = 'ACCESS_DENIED',
 	UNAUTHORIZED = 'UNAUTHORIZED',
 	BAD_CREDENTIALS = 'BAD_CREDENTIALS',
 }

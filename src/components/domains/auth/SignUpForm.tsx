@@ -29,7 +29,8 @@ const SignUpForm = () => {
 	const { mutate: createUser } = useCreateUser()
 	return (
 		<Flex
-			w={'400px'}
+			w={'100%'}
+			maxW={'400px'}
 			p={4}
 			direction={'column'}
 			gap={6}

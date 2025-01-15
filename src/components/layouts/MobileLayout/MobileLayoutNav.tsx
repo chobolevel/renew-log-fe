@@ -34,16 +34,16 @@ const MobileLayoutNav = () => {
 			zIndex={100}
 			pb={6}
 		>
-			<MobileLayoutNavItem icon={<MdArticle size={20} />} text={'Posts'} />
-			<MobileLayoutNavItem icon={<FaHashtag size={20} />} text={'Tags'} />
-			<MobileLayoutNavItem icon={<FaHome size={20} />} text={'Home'} />
+			<MobileLayoutNavItem icon={<MdArticle size={20} />} text={'게시글'} />
+			<MobileLayoutNavItem icon={<FaHashtag size={20} />} text={'태그'} />
+			<MobileLayoutNavItem icon={<FaHome size={20} />} text={'홈'} />
 			<MobileLayoutNavItem
 				icon={<HiOutlinePencilAlt size={20} />}
-				text={'Guests'}
+				text={'방명록'}
 			/>
 			<MobileLayoutNavItem
 				icon={<IoChatbubbleEllipsesSharp size={20} />}
-				text={'Channels'}
+				text={'채널'}
 			/>
 		</Flex>
 	)

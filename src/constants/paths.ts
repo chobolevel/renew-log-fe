@@ -8,6 +8,7 @@ export enum ApiV1Paths {
 	LOGOUT = '/api/v1/logout',
 	REISSUE = '/api/v1/reissue',
 
+	ME = '/api/v1/users/me',
 	USERS = '/api/v1/users/:id?',
 }
 
