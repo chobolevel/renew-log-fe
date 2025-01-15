@@ -4,6 +4,8 @@ export const toUrl = (path: ApiV1Paths | PagePaths, params?: object) =>
 	compile(path, { encode: encodeURIComponent })(params)
 
 export enum ApiV1Paths {
+	PRESIGNED_URL = '/api/v1/upload/presigned-url',
+
 	LOGIN = '/api/v1/login',
 	LOGOUT = '/api/v1/logout',
 	REISSUE = '/api/v1/reissue',
@@ -12,7 +14,7 @@ export enum ApiV1Paths {
 	USERS = '/api/v1/users/:id?',
 	USERS_IMAGES = '/api/v1/users/images/:id?',
 
-	PRESIGNED_URL = '/api/v1/upload/presigned-url',
+	POSTS = '/api/v1/posts/:id?',
 }
 
 export enum PagePaths {

@@ -1,5 +1,7 @@
 export * from './auth'
 export * from './axios'
 export * from './common'
+export * from './posts'
+export * from './tags'
 export * from './upload'
 export * from './users'
