@@ -10,6 +10,9 @@ export enum ApiV1Paths {
 
 	ME = '/api/v1/users/me',
 	USERS = '/api/v1/users/:id?',
+	USERS_IMAGES = '/api/v1/users/images/:id?',
+
+	PRESIGNED_URL = '/api/v1/upload/presigned-url',
 }
 
 export enum PagePaths {

@@ -30,7 +30,7 @@ export interface Schema {
 	updated_at: number
 }
 
-export interface ApiPagingRequest {
+export interface PagingQueryParams {
 	skipCount?: number
 	limitCount?: number
 }
