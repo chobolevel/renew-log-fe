@@ -8,7 +8,10 @@ const SignUp = () => {
 			<Head>
 				<title>{'회원가입 - 초로'}</title>
 				<meta name={'title'} content={'회원가입 -초로'} />
-				<meta name={'description'} content={'초보 개발자의 로그에 회원가입'} />
+				<meta
+					name={'description'}
+					content={'초보 개발자의 로그(초로)에 회원가입'}
+				/>
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<meta name="robots" content="index, follow" />
 
@@ -17,7 +20,7 @@ const SignUp = () => {
 				<meta property={'og:title'} content={'회원가입 - 초로'} />
 				<meta
 					property={'og:description'}
-					content={'초보 개발자의 로그에 회원가입'}
+					content={'초보 개발자의 로그(초로)에 회원가입'}
 				/>
 				<meta
 					property={'og:url'}
@@ -32,7 +35,7 @@ const SignUp = () => {
 				<meta name={'twitter:title'} content={'회원가입 - 초로'} />
 				<meta
 					name={'twitter:description'}
-					content={'초로 개발자의 블로그에 회원가입'}
+					content={'초보 개발자의 로그(초로)에 회원가입'}
 				/>
 				<meta name={'twitter:image'} content={images.logo.src} />
 			</Head>
