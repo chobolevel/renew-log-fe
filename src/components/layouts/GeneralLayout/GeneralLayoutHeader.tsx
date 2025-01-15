@@ -1,4 +1,5 @@
 import { Flex, Text } from '@chakra-ui/react'
+import { Logo } from '@/components'
 
 const GeneralLayoutHeader = () => {
 	return (
@@ -20,9 +21,7 @@ const GeneralLayoutHeader = () => {
 				py={2}
 			>
 				<Flex>
-					<Text fontSize={'2xl'} fontWeight={'bold'}>
-						Cholo
-					</Text>
+					<Logo />
 				</Flex>
 				<Flex align={'center'} gap={2} fontWeight={'semibold'}>
 					<Text>Posts</Text>

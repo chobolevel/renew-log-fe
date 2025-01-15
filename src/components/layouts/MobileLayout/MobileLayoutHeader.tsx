@@ -1,5 +1,11 @@
-import { Flex, Text } from '@chakra-ui/react'
-import { MenuContent, MenuItem, MenuRoot, MenuTrigger } from '@/components'
+import { Flex } from '@chakra-ui/react'
+import {
+	Logo,
+	MenuContent,
+	MenuItem,
+	MenuRoot,
+	MenuTrigger,
+} from '@/components'
 import { GiHamburgerMenu } from 'react-icons/gi'
 
 const MobileLayoutHeader = () => {
@@ -22,9 +28,7 @@ const MobileLayoutHeader = () => {
 				justify={'space-between'}
 			>
 				<Flex>
-					<Text fontSize={'xl'} fontWeight={'bold'}>
-						Cholo
-					</Text>
+					<Logo />
 				</Flex>
 				<MenuRoot>
 					<MenuTrigger asChild>
