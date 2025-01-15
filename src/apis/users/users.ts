@@ -5,7 +5,7 @@ import {
 	ID,
 	PagingQueryParams,
 	Schema,
-	UserImage,
+	UserImages,
 } from '@/apis'
 import { ApiV1Paths, toUrl } from '@/constants'
 
@@ -25,7 +25,7 @@ export interface User extends Schema {
 	login_type: UserLoginType
 	nickname: string
 	role: UserRoleType
-	profile_image?: UserImage
+	profile_image?: UserImages
 }
 
 export interface CreateUserRequest {

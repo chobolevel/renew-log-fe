@@ -4,7 +4,7 @@ import { ApiV1Paths, toUrl } from '@/constants'
 
 export type UserImageType = 'PROFILE'
 
-export interface UserImage extends Schema {
+export interface UserImages extends Schema {
 	type: UserImageType
 	origin_url: string
 	name: string
