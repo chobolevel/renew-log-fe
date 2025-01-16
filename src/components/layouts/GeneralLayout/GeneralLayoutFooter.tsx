@@ -16,7 +16,7 @@ const GeneralLayoutFooter = () => {
 				py={50}
 			>
 				<Text fontSize={'sm'} fontWeight={'bold'}>
-					Copyright &copy; chobolevel. All Rights Reserved.
+					Copyright 2025 chobolevel. All rights reserved.
 				</Text>
 			</Flex>
 		</Flex>
