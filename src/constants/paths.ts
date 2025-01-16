@@ -15,6 +15,8 @@ export enum ApiV1Paths {
 	USERS_IMAGES = '/api/v1/users/images/:id?',
 
 	POSTS = '/api/v1/posts/:id?',
+
+	TAGS = '/api/v1/tags',
 }
 
 export enum PagePaths {
