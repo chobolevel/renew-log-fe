@@ -9,7 +9,7 @@ interface PostListProps {
 const PostList = ({ posts }: PostListProps) => {
 	return (
 		<>
-			{posts ? (
+			{posts.length > 0 ? (
 				<Grid
 					templateColumns={{
 						base: 'repeat(1, 1fr)',
@@ -23,8 +23,8 @@ const PostList = ({ posts }: PostListProps) => {
 					})}
 				</Grid>
 			) : (
-				<Flex h={300} align={'center'} justify={'center'}>
-					<Text>조건에 맞는 게시글을 찾을 수 없습니다.</Text>
+				<Flex h={150} align={'center'} justify={'center'}>
+					<Text>게시글을 찾을 수 없습니다.</Text>
 				</Flex>
 			)}
 		</>

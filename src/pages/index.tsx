@@ -5,12 +5,12 @@ import { useGetPosts, useGetTags } from '@/apis'
 import { Flex, Spinner, Text } from '@chakra-ui/react'
 
 const Home = () => {
-	const { data: tags, isError: isTagsError } = useGetTags({
+	const { data: tags, isFetching: isTagsFetching } = useGetTags({
 		skipCount: 0,
 		limitCount: 999,
 		orderTypes: ['ORDER_ASC'],
 	})
-	const { data: posts, isError: isPostsError } = useGetPosts({
+	const { data: posts, isFetching: isPostsFetching } = useGetPosts({
 		skipCount: 0,
 		limitCount: 12,
 		orderTypes: ['CREATED_AT_DESC'],
@@ -66,10 +66,10 @@ const Home = () => {
 						<TagList tags={tags.data} />
 					) : (
 						<Flex h={300} align={'center'} justify={'center'}>
-							{isTagsError ? (
-								<Text>태그를 찾을 수 없습니다.</Text>
-							) : (
+							{isTagsFetching ? (
 								<Spinner size={'lg'} />
+							) : (
+								<Text>태그를 찾을 수 없습니다.</Text>
 							)}
 						</Flex>
 					)}
@@ -82,10 +82,10 @@ const Home = () => {
 						<PostList posts={posts.data} />
 					) : (
 						<Flex h={300} align={'center'} justify={'center'}>
-							{isPostsError ? (
-								<Text>게시글을 찾을 수 없습니다</Text>
-							) : (
+							{isPostsFetching ? (
 								<Spinner size={'lg'} />
+							) : (
+								<Text>게시글을 찾을 수 없습니다</Text>
 							)}
 						</Flex>
 					)}
