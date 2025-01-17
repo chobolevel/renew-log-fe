@@ -11,7 +11,7 @@ const SignUp = () => {
 				<meta
 					name={'description'}
 					content={
-						'TIL(Today I Learned)에 회원가입하고 다른 개발자들과 학습한 내용을 공유해보세요!'
+						'TIL(Today I Logged)에 회원가입하고 다른 개발자들과 학습한 내용을 공유해보세요!'
 					}
 				/>
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -23,7 +23,7 @@ const SignUp = () => {
 				<meta
 					property={'og:description'}
 					content={
-						'TIL(Today I Learned)에 회원가입하고 다른 개발자들과 학습한 내용을 공유해보세요!'
+						'TIL(Today I Logged)에 회원가입하고 다른 개발자들과 학습한 내용을 공유해보세요!'
 					}
 				/>
 				<meta
@@ -40,7 +40,7 @@ const SignUp = () => {
 				<meta
 					name={'twitter:description'}
 					content={
-						'TIL(Today I Learned)에 회원가입하고 다른 개발자들과 학습한 내용을 공유해보세요!'
+						'TIL(Today I Logged)에 회원가입하고 다른 개발자들과 학습한 내용을 공유해보세요!'
 					}
 				/>
 				<meta name={'twitter:image'} content={images.logo.src} />

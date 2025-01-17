@@ -108,7 +108,7 @@ export const getServerSideProps: GetServerSideProps<{
 	const metadata = {
 		title: '로거 - TIL',
 		description:
-			'TIL(Today I Learned)에서 다른 개발자들의 학습한 내용을 확인해보세요!',
+			'TIL(Today I Logged)에서 다른 개발자들의 학습한 내용을 확인해보세요!',
 	}
 	const id = Number(context.query.id)
 	if (!id) {

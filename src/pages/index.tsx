@@ -23,7 +23,7 @@ const Home = () => {
 				<meta
 					name={'description'}
 					content={
-						'TIL(Today I Learned)에서 다른 개발자들과 학습한 내용을 공유해보세요!'
+						'TIL(Today I Logged)에서 다른 개발자들과 학습한 내용을 공유해보세요!'
 					}
 				/>
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -35,7 +35,7 @@ const Home = () => {
 				<meta
 					property={'og:description'}
 					content={
-						'TIL(Today I Learned)에서 다른 개발자들과 학습한 내용을 공유해보세요!'
+						'TIL(Today I Logged)에서 다른 개발자들과 학습한 내용을 공유해보세요!'
 					}
 				/>
 				<meta
@@ -52,7 +52,7 @@ const Home = () => {
 				<meta
 					name={'twitter:description'}
 					content={
-						'TIL(Today I Learned)에서 다른 개발자들과 학습한 내용을 공유해보세요!'
+						'TIL(Today I Logged)에서 다른 개발자들과 학습한 내용을 공유해보세요!'
 					}
 				/>
 				<meta name={'twitter:image'} content={images.logo.src} />
