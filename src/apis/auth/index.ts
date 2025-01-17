@@ -11,9 +11,11 @@ export interface LoginRequest {
 }
 
 export const useLogin = () => {
+	const invalidate = useInvalidate(toUrl(ApiV1Paths.ME))
 	return useMutation({
 		mutationFn: (request: LoginRequest) =>
 			Api.post<boolean>(toUrl(ApiV1Paths.LOGIN), request),
+		onSuccess: invalidate,
 	})
 }
 

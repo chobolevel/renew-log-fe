@@ -23,4 +23,5 @@ export enum PagePaths {
 	HOME = '/',
 	SIGN_IN = '/sign/in',
 	SIGN_UP = '/sign/up',
+	SOCIAL_SIGN_UP = '/sign/up/social',
 }

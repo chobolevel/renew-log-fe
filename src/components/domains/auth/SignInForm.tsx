@@ -2,7 +2,13 @@ import { Flex, Input, Text } from '@chakra-ui/react'
 import { useForm } from 'react-hook-form'
 import { LoginRequest, useLogin } from '@/apis'
 import { useCallback } from 'react'
-import { Button, InputErrorMessage, InputLabel, Logo } from '@/components'
+import {
+	Button,
+	InputErrorMessage,
+	InputLabel,
+	Logo,
+	SocialButtons,
+} from '@/components'
 import { ErrorMessage } from '@hookform/error-message'
 import { PagePaths, toUrl } from '@/constants'
 import Link from 'next/link'
@@ -45,6 +51,7 @@ const SignInForm = () => {
 					로그인
 				</Text>
 			</Flex>
+			<SocialButtons />
 			<Flex direction={'column'} gap={2}>
 				<InputLabel>아이디(이메일)</InputLabel>
 				<Input
@@ -92,7 +99,7 @@ const SignInForm = () => {
 				</Button>
 			</Flex>
 			<Flex align={'center'} justify={'space-between'}>
-				<Link href={PagePaths.HOME}>아이디 찾기</Link>
+				<Link href={PagePaths.HOME}>비밀번호 재설정</Link>
 				<Link href={PagePaths.SIGN_UP}>회원가입</Link>
 			</Flex>
 		</Flex>

@@ -35,7 +35,6 @@ export interface CreateUserRequest {
 	social_id?: string
 	login_type: UserLoginType
 	nickname: string
-	phone: string
 }
 
 export interface GetUsersParams extends PagingQueryParams {
