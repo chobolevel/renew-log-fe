@@ -1,1 +1,1 @@
-export { default as QuillWrapper } from './QuillWrapper'
+export { default as QuillEditor } from './QuillEditor'

@@ -1,7 +1,7 @@
 import { images } from '@/constants'
 import Head from 'next/head'
 import { Flex } from '@chakra-ui/react'
-import { QuillWrapper, ResponsiveLayout } from '@/components'
+import { QuillEditor, ResponsiveLayout } from '@/components'
 import 'react-quill-new/dist/quill.snow.css'
 
 const WritePost = () => {
@@ -49,7 +49,7 @@ const WritePost = () => {
 			</Head>
 			<ResponsiveLayout>
 				<Flex direction={'column'} gap={6}>
-					<QuillWrapper />
+					<QuillEditor />
 				</Flex>
 			</ResponsiveLayout>
 		</>
