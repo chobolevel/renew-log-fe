@@ -106,8 +106,9 @@ export const getServerSideProps: GetServerSideProps<{
 	metadata: { title: string; description: string }
 }> = async (context) => {
 	const metadata = {
-		title: '로거 - 홈',
-		description: '로그를 남기는 로거를 확인해보세요!',
+		title: '로거 - TIL',
+		description:
+			'TIL(Today I Learned)에서 다른 개발자들의 학습한 내용을 확인해보세요!',
 	}
 	const id = Number(context.query.id)
 	if (!id) {
@@ -125,7 +126,7 @@ export const getServerSideProps: GetServerSideProps<{
 				user,
 				metadata: {
 					title: `${user.nickname} - 초로`,
-					description: `${user.nickname}로거를 확인해보세요!`,
+					description: `${user.nickname}로거의 학습 내용을 확인해보세요!`,
 				},
 			},
 		}

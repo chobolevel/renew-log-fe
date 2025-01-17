@@ -21,7 +21,7 @@ const Logo = ({ size = 'lg' }: LogoProps) => {
 				router.push(toUrl(PagePaths.HOME))
 			}}
 		>
-			Cholo
+			T I L
 		</Text>
 	)
 }

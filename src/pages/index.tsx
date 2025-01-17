@@ -18,18 +18,25 @@ const Home = () => {
 	return (
 		<>
 			<Head>
-				<title>{'홈 - 초로'}</title>
-				<meta name={'title'} content={'홈 -초로'} />
-				<meta name={'description'} content={'초보 개발자의 로그(초로)'} />
+				<title>{'홈 - TIL'}</title>
+				<meta name={'title'} content={'홈 -TIL'} />
+				<meta
+					name={'description'}
+					content={
+						'TIL(Today I Learned)에서 다른 개발자들과 학습한 내용을 공유해보세요!'
+					}
+				/>
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<meta name="robots" content="index, follow" />
 
 				<meta property={'og:type'} content={'article'} />
 				<meta property={'og.locale'} content={'ko_KR'} />
-				<meta property={'og:title'} content={'홈 - 초로'} />
+				<meta property={'og:title'} content={'홈 - TIL'} />
 				<meta
 					property={'og:description'}
-					content={'초보 개발자의 로그(초로)'}
+					content={
+						'TIL(Today I Learned)에서 다른 개발자들과 학습한 내용을 공유해보세요!'
+					}
 				/>
 				<meta
 					property={'og:url'}
@@ -41,10 +48,12 @@ const Home = () => {
 				/>
 				<meta property={'org:image'} content={images.logo.src} />
 
-				<meta name={'twitter:title'} content={'홈 - 초로'} />
+				<meta name={'twitter:title'} content={'홈 - TIL'} />
 				<meta
 					name={'twitter:description'}
-					content={'초보 개발자의 로그(초로)'}
+					content={
+						'TIL(Today I Learned)에서 다른 개발자들과 학습한 내용을 공유해보세요!'
+					}
 				/>
 				<meta name={'twitter:image'} content={images.logo.src} />
 			</Head>
