@@ -20,7 +20,12 @@ const ReactQuillWrapper = dynamic(
 	{ ssr: false },
 )
 
-const QuillEditor = () => {
+interface QuillEditorProps {
+	value: string
+	onChange: (val: string) => void
+}
+
+const QuillEditor = ({ value, onChange }: QuillEditorProps) => {
 	const quillRef = useRef<ReactQuill>(null)
 
 	const { mutate: createPresigendUrl } = useCreatePresignedUrl()
@@ -91,6 +96,8 @@ const QuillEditor = () => {
 			modules={{
 				toolbar,
 			}}
+			value={value}
+			onChange={onChange}
 		/>
 	)
 }

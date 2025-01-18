@@ -34,7 +34,7 @@ const client = new QueryClient({
 				toaster.create({
 					type: 'error',
 					title: '비로그인 회원',
-					description: '로그인한 회원만 접근 가능한 기능입니다.',
+					description: '로그인한 회원만 사용 가능한 기능입니다.',
 				})
 			} else {
 				toaster.create({
