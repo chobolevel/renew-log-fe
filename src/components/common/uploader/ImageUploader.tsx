@@ -2,7 +2,7 @@ import { Input } from '@chakra-ui/react'
 import { useCreatePresignedUrl } from '@/apis'
 
 interface ImageUploaderProps {
-	inputRef: React.RefObject<HTMLInputElement>
+	inputRef: React.RefObject<HTMLInputElement | null>
 	onUpload: (
 		url: string,
 		filename: string,

@@ -1,6 +1,7 @@
 import {
 	Api,
 	ApiPagingResponse,
+	CreatePostImage,
 	ID,
 	PagingQueryParams,
 	Schema,
@@ -28,7 +29,7 @@ export interface CreatePostRequest {
 	title: string
 	sub_title: string
 	content: string
-	thumb_nail_image?: PostImage
+	thumb_nail_image?: CreatePostImage
 }
 
 export interface GetPostsParams extends PagingQueryParams {
