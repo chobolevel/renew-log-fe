@@ -1,15 +1,18 @@
 import { Flex, GridItem, Image, Text } from '@chakra-ui/react'
 import { Post } from '@/apis'
 import { useMemo } from 'react'
-import { images } from '@/constants'
+import { images, PagePaths, toUrl } from '@/constants'
 import { Tag } from '@/components'
 import moment from 'moment'
+import { useRouter } from 'next/router'
 
 interface PostListItemProps {
 	post: Post
 }
 
 const PostListItem = ({ post }: PostListItemProps) => {
+	const router = useRouter()
+
 	const thumbNailImageUrl = useMemo(
 		() => post?.thumb_nail_image?.url ?? images.logo.src,
 		[post],
@@ -24,6 +27,9 @@ const PostListItem = ({ post }: PostListItemProps) => {
 			flexDirection={'column'}
 			gap={2}
 			cursor={'pointer'}
+			onClick={() => {
+				router.push(toUrl(PagePaths.POST_DETAIL, { id: post.id }))
+			}}
 		>
 			<Image
 				w={'100%'}
