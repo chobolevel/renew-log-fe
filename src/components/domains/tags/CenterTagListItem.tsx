@@ -22,7 +22,7 @@ const CenterTagListItem = ({ tag }: CenterTagListItemProps) => {
 				color: 'white',
 			}}
 		>
-			{tag.name}
+			{`${tag.name}(${tag.posts_count})`}
 		</_Tag>
 	)
 }
