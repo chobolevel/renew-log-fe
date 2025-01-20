@@ -1,8 +1,8 @@
 import { images } from '@/constants'
 import Head from 'next/head'
 import {
-	PaginationItems,
 	PaginationNextTrigger,
+	PaginationPageText,
 	PaginationPrevTrigger,
 	PaginationRoot,
 	PostList,
@@ -11,6 +11,7 @@ import {
 import { useGetPosts } from '@/apis'
 import { Flex, Spinner, Text } from '@chakra-ui/react'
 import { useState } from 'react'
+import { HiPencilAlt } from 'react-icons/hi'
 
 const LIMIT_COUNT = 6
 
@@ -71,14 +72,15 @@ const PostListPage = () => {
 									page={page}
 									pageSize={LIMIT_COUNT}
 									count={posts.total_count}
-									siblingCount={2}
+									siblingCount={1}
 									onPageChange={(e) => {
+										window.scrollTo({ top: 0, behavior: 'smooth' })
 										setPage(e.page)
 									}}
 								>
 									<Flex align={'center'} gap={2}>
 										<PaginationPrevTrigger />
-										<PaginationItems />
+										<PaginationPageText />
 										<PaginationNextTrigger />
 									</Flex>
 								</PaginationRoot>
@@ -93,6 +95,21 @@ const PostListPage = () => {
 							)}
 						</Flex>
 					)}
+				</Flex>
+				<Flex
+					p={4}
+					position={'fixed'}
+					bottom={{ base: 20, lg: 4 }}
+					right={{ base: 2, lg: 4 }}
+					direction={'column'}
+					align={'center'}
+					justify={'center'}
+					borderRadius={'50%'}
+					bgColor={'point'}
+					color={'white'}
+					cursor={'pointer'}
+				>
+					<HiPencilAlt size={24} />
 				</Flex>
 			</ResponsiveLayout>
 		</>
