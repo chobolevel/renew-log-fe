@@ -1,6 +1,8 @@
-import { Flex, Grid, Text } from '@chakra-ui/react'
+import { Grid } from '@chakra-ui/react'
 import { Post } from '@/apis'
-import { PostListItem } from '@/components'
+import { EmptyState, PostListItem } from '@/components'
+import React from 'react'
+import { MdArticle } from 'react-icons/md'
 
 interface PostListProps {
 	posts: Post[]
@@ -23,9 +25,10 @@ const PostList = ({ posts }: PostListProps) => {
 					})}
 				</Grid>
 			) : (
-				<Flex h={150} align={'center'} justify={'center'}>
-					<Text>게시글을 찾을 수 없습니다.</Text>
-				</Flex>
+				<EmptyState
+					icon={<MdArticle size={20} />}
+					title={'게시글을 찾을 수 없습니다.'}
+				/>
 			)}
 		</>
 	)

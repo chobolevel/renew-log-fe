@@ -1,6 +1,7 @@
 import { images } from '@/constants'
 import Head from 'next/head'
 import {
+	EmptyState,
 	PaginationNextTrigger,
 	PaginationPageText,
 	PaginationPrevTrigger,
@@ -10,8 +11,9 @@ import {
 } from '@/components'
 import { useGetPosts } from '@/apis'
 import { Flex, Spinner, Text } from '@chakra-ui/react'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { HiPencilAlt } from 'react-icons/hi'
+import { MdArticle } from 'react-icons/md'
 
 const LIMIT_COUNT = 6
 
@@ -91,7 +93,10 @@ const PostListPage = () => {
 							{isFetching ? (
 								<Spinner size={'lg'} />
 							) : (
-								<Text>로그를 찾을 수 없습니다</Text>
+								<EmptyState
+									icon={<MdArticle size={20} />}
+									title={'게시글을 찾을 수 없습니다.'}
+								/>
 							)}
 						</Flex>
 					)}
