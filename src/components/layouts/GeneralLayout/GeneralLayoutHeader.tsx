@@ -11,8 +11,30 @@ import { useGetMe, useLogout } from '@/apis'
 import { useMemo } from 'react'
 import Link from 'next/link'
 import { PagePaths } from '@/constants'
+import { match } from 'path-to-regexp'
+import { useRouter } from 'next/router'
+
+const navs = [
+	{
+		pathname: PagePaths.POSTS,
+		label: '게시글',
+		matchers: [
+			match(PagePaths.POSTS),
+			match(PagePaths.WRITE_POST),
+			match(PagePaths.POST_DETAIL),
+			match(PagePaths.EDIT_POST),
+		],
+	},
+	{
+		pathname: PagePaths.TAGS,
+		label: '태그',
+		matchers: [match(PagePaths.TAGS)],
+	},
+]
 
 const GeneralLayoutHeader = () => {
+	const router = useRouter()
+
 	const { data: me } = useGetMe()
 	const { mutate: logout } = useLogout()
 
@@ -35,8 +57,26 @@ const GeneralLayoutHeader = () => {
 				justify={'space-between'}
 				py={2}
 			>
-				<Flex>
+				<Flex align={'center'} gap={4}>
 					<Logo />
+					{navs.map((nav, idx) => {
+						const isMatch = nav.matchers.some((matcher) =>
+							matcher(router.pathname),
+						)
+						return (
+							<Link
+								key={idx}
+								href={nav.pathname}
+								style={{
+									padding: '4px 10px',
+									fontWeight: 'bold',
+									color: isMatch ? '#38a16a' : 'none',
+								}}
+							>
+								{nav.label}
+							</Link>
+						)
+					})}
 				</Flex>
 				<Flex align={'center'} gap={2} fontWeight={'semibold'}>
 					{me ? (

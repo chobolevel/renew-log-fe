@@ -17,7 +17,7 @@ export interface GetTagsParams extends PagingQueryParams {
 
 export const useGetTags = (params?: GetTagsParams) => {
 	return useQuery({
-		queryKey: [toUrl(ApiV1Paths.TAGS)],
+		queryKey: [toUrl(ApiV1Paths.TAGS), params],
 		queryFn: () =>
 			Api.get<ApiPagingResponse<Tag[]>>(toUrl(ApiV1Paths.TAGS), params),
 	})

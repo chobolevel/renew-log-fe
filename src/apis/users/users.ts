@@ -76,7 +76,7 @@ export const useGetMe = () => {
 
 export const useGetUsers = (params?: GetUsersParams) => {
 	return useQuery({
-		queryKey: [toUrl(ApiV1Paths.USERS)],
+		queryKey: [toUrl(ApiV1Paths.USERS), params],
 		queryFn: () =>
 			Api.get<ApiPagingResponse<User[]>>(toUrl(ApiV1Paths.USERS), params),
 	})

@@ -1,7 +1,6 @@
 import { images } from '@/constants'
 import Head from 'next/head'
 import { ResponsiveLayout, WritePostForm } from '@/components'
-import 'react-quill-new/dist/quill.snow.css'
 
 const WritePost = () => {
 	return (
@@ -20,7 +19,7 @@ const WritePost = () => {
 
 				<meta property={'og:type'} content={'article'} />
 				<meta property={'og.locale'} content={'ko_KR'} />
-				<meta property={'og:title'} content={'홈 - TIL'} />
+				<meta property={'og:title'} content={'로그 작성 - TIL'} />
 				<meta
 					property={'og:description'}
 					content={
@@ -37,7 +36,7 @@ const WritePost = () => {
 				/>
 				<meta property={'org:image'} content={images.logo.src} />
 
-				<meta name={'twitter:title'} content={'홈 - TIL'} />
+				<meta name={'twitter:title'} content={'로그 작성 - TIL'} />
 				<meta
 					name={'twitter:description'}
 					content={

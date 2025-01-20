@@ -64,7 +64,7 @@ export const useCreatePost = () => {
 
 export const useGetPosts = (params?: GetPostsParams) => {
 	return useQuery({
-		queryKey: [toUrl(ApiV1Paths.POSTS)],
+		queryKey: [toUrl(ApiV1Paths.POSTS), params],
 		queryFn: () =>
 			Api.get<ApiPagingResponse<Post[]>>(toUrl(ApiV1Paths.POSTS), params),
 	})

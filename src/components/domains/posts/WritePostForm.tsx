@@ -27,6 +27,7 @@ import { useRouter } from 'next/router'
 import { CreatePostRequest, ID, useCreatePost, useGetTags } from '@/apis'
 import { useForm } from 'react-hook-form'
 import { LuImagePlus } from 'react-icons/lu'
+import 'react-quill-new/dist/quill.snow.css'
 
 const WritePostForm = () => {
 	const router = useRouter()
