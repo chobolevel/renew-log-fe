@@ -1,11 +1,11 @@
-import { Tag } from '@/apis'
 import { Tag as _Tag } from '@/components'
+import { Tag } from '@/apis'
 
-interface TagListItemProps {
+interface CenterTagListItemProps {
 	tag: Tag
 }
 
-const TagListItem = ({ tag }: TagListItemProps) => {
+const CenterTagListItem = ({ tag }: CenterTagListItemProps) => {
 	return (
 		<_Tag
 			size={'lg'}
@@ -13,8 +13,8 @@ const TagListItem = ({ tag }: TagListItemProps) => {
 			colorPalette={'green'}
 			variant={'outline'}
 			borderRadius={30}
-			py={2}
-			px={4}
+			py={4}
+			px={6}
 			cursor={'pointer'}
 			transition={'all 0.1s ease-in-out'}
 			_hover={{
@@ -27,4 +27,4 @@ const TagListItem = ({ tag }: TagListItemProps) => {
 	)
 }
 
-export default TagListItem
+export default CenterTagListItem

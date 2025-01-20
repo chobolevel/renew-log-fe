@@ -1,6 +1,6 @@
 import { useQueryClient } from '@tanstack/react-query'
 
-export type ID = string
+export type ID = number
 
 export interface ApiResponse<T> {
 	data: T

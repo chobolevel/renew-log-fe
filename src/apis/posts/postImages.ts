@@ -10,7 +10,15 @@ export interface PostImage extends Schema {
 	height: number
 }
 
-export interface CreatePostImage {
+export interface CreatePostImageRequest {
+	type: PostImageType
+	name: string
+	url: string
+	width?: number
+	height?: number
+}
+
+export interface UpdatePostImageRequest {
 	type: PostImageType
 	name: string
 	url: string

@@ -1,11 +1,9 @@
 import { ApiV1Paths, images, toUrl } from '@/constants'
 import Head from 'next/head'
-import { EmptyState, Prose, ResponsiveLayout, Tag } from '@/components'
+import { EmptyState, PostDetail, ResponsiveLayout } from '@/components'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { Nullable } from '@zag-js/types'
 import { Api, Post } from '@/apis'
-import { Flex, Separator, Text } from '@chakra-ui/react'
-import { useRouter } from 'next/router'
 import { MdArticle } from 'react-icons/md'
 import React from 'react'
 
@@ -13,7 +11,6 @@ const PostDetailPage = ({
 	post,
 	metadata,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-	const router = useRouter()
 	return (
 		<>
 			<Head>
@@ -43,34 +40,7 @@ const PostDetailPage = ({
 			</Head>
 			<ResponsiveLayout>
 				{post ? (
-					<Flex direction={'column'} gap={6}>
-						<Flex align={'center'} gap={2} flexWrap={'wrap'}>
-							{post.tags.map((tag, idx) => {
-								return (
-									<Tag
-										key={idx}
-										colorPalette={'green'}
-										size={'lg'}
-										fontWeight={'bold'}
-										variant={'outline'}
-										px={4}
-										py={2}
-										borderRadius={20}
-									>
-										{tag.name}
-									</Tag>
-								)
-							})}
-						</Flex>
-						<Flex direction={'column'} gap={2}>
-							<Text fontSize={'lg'} fontWeight={'bold'}>
-								{post.title}
-							</Text>
-							<Text>{post.sub_title}</Text>
-						</Flex>
-						<Separator />
-						<Prose dangerouslySetInnerHTML={{ __html: post.content }} />
-					</Flex>
+					<PostDetail post={post} />
 				) : (
 					<EmptyState
 						icon={<MdArticle size={20} />}

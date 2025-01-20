@@ -1,4 +1,5 @@
 export * from './chakra'
+export * from './dialog'
 export * from './input'
 export * from './logo'
 export * from './quill'

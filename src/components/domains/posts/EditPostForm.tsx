@@ -1,3 +1,12 @@
+import {
+	createListCollection,
+	Flex,
+	Image,
+	Input,
+	Separator,
+	Textarea,
+} from '@chakra-ui/react'
+import { ID, Post, UpdatePostRequest, useGetTags, useUpdatePost } from '@/apis'
 import { useCallback, useMemo, useRef, useState } from 'react'
 import {
 	Button,
@@ -13,43 +22,53 @@ import {
 	toaster,
 } from '@/components'
 import { removeHtmlTag } from '@/utils'
-import { PagePaths, toUrl } from '@/constants'
-import {
-	createListCollection,
-	Flex,
-	Image,
-	Input,
-	Separator,
-	Textarea,
-} from '@chakra-ui/react'
 import { ErrorMessage } from '@hookform/error-message'
-import { useRouter } from 'next/router'
-import { CreatePostRequest, ID, useCreatePost, useGetTags } from '@/apis'
-import { useForm } from 'react-hook-form'
 import { LuImagePlus } from 'react-icons/lu'
-import 'react-quill-new/dist/quill.snow.css'
+import { useForm } from 'react-hook-form'
+import { useRouter } from 'next/router'
+import { PagePaths, toUrl } from '@/constants'
 
-const WritePostForm = () => {
+interface EditPostFormProps {
+	post: Post
+}
+
+const EditPostForm = ({ post }: EditPostFormProps) => {
 	const router = useRouter()
 	const thumbNailImageRef = useRef<HTMLInputElement>(null)
 	const [selectedTags, setSelectedTags] = useState<
 		{ label: string; value: ID }[]
-	>([])
-	const [content, setContent] = useState<string>('')
+	>(post.tags.map((tag) => ({ label: tag.name, value: tag.id })))
+	const [content, setContent] = useState<string>(post.content)
 	const {
 		handleSubmit,
 		register,
-		setValue,
 		watch,
+		setValue,
 		formState: { errors },
-	} = useForm<CreatePostRequest>()
+	} = useForm<UpdatePostRequest>({
+		defaultValues: {
+			id: post.id,
+			tag_ids: post.tags.map((t) => t.id),
+			title: post.title,
+			sub_title: post.sub_title,
+			content: post.content,
+			thumb_nail_image: post.thumb_nail_image,
+			update_mask: [
+				'TAGS',
+				'TITLE',
+				'SUB_TITLE',
+				'CONTENT',
+				'THUMB_NAIL_IMAGE',
+			],
+		},
+	})
 
 	const { data: tags } = useGetTags({
 		skipCount: 0,
 		limitCount: 999,
 		orderTypes: ['ORDER_ASC'],
 	})
-	const { mutate: createPost } = useCreatePost()
+	const { mutate: updatePost } = useUpdatePost()
 
 	const tagListCollection = useMemo(
 		() =>
@@ -84,14 +103,16 @@ const WritePostForm = () => {
 						}
 						data.tag_ids = selectedTags.map((t) => t.value)
 						data.content = content
-						createPost(data, {
+						updatePost(data, {
 							onSuccess: () => {
-								router.push(toUrl(PagePaths.HOME)).then(() => {
-									toaster.create({
-										type: 'success',
-										title: '게시글 등록 완료	',
+								router
+									.push(toUrl(PagePaths.POST_DETAIL, { id: post.id }))
+									.then(() => {
+										toaster.create({
+											type: 'success',
+											title: '로그 수정 완료',
+										})
 									})
-								})
 							},
 						})
 					},
@@ -247,4 +268,4 @@ const WritePostForm = () => {
 	)
 }
 
-export default WritePostForm
+export default EditPostForm

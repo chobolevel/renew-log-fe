@@ -1,5 +1,10 @@
 import { AppProps } from 'next/app'
-import { ChakraProvider, ReactQueryProvider } from '@/components'
+import {
+	AlertDialog,
+	ChakraProvider,
+	ConfirmDialog,
+	ReactQueryProvider,
+} from '@/components'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { Flex, Spinner } from '@chakra-ui/react'
@@ -35,6 +40,8 @@ const App = ({ Component, pageProps }: AppProps) => {
 				) : (
 					<Component {...pageProps} />
 				)}
+				<AlertDialog />
+				<ConfirmDialog />
 			</ChakraProvider>
 		</ReactQueryProvider>
 	)

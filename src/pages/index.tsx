@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { images } from '@/constants'
-import { PostList, ResponsiveLayout, TagList } from '@/components'
+import { CenterTagList, PostList, ResponsiveLayout } from '@/components'
 import { useGetPosts, useGetTags } from '@/apis'
 import { Flex, Spinner, Text } from '@chakra-ui/react'
 
@@ -63,7 +63,7 @@ const Home = () => {
 						태그
 					</Text>
 					{tags ? (
-						<TagList tags={tags.data} />
+						<CenterTagList tags={tags.data} />
 					) : (
 						<Flex h={300} align={'center'} justify={'center'}>
 							{isTagsFetching ? (

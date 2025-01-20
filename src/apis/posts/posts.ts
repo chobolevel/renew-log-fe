@@ -1,11 +1,12 @@
 import {
 	Api,
 	ApiPagingResponse,
-	CreatePostImage,
+	CreatePostImageRequest,
 	ID,
 	PagingQueryParams,
 	Schema,
 	Tag,
+	UpdatePostImageRequest,
 	User,
 } from '@/apis'
 import { PostImage } from '@/apis/posts/postImages'
@@ -13,7 +14,12 @@ import { useMutation, useQuery } from '@tanstack/react-query'
 import { ApiV1Paths, toUrl } from '@/constants'
 
 export type PostOrderType = 'CREATED_AT_ASC' | 'CREATED_AT_DESC'
-export type PostUpdateMask = 'TITLE' | 'SUB_TITLE' | 'CONTENT'
+export type PostUpdateMask =
+	| 'TAGS'
+	| 'TITLE'
+	| 'SUB_TITLE'
+	| 'CONTENT'
+	| 'THUMB_NAIL_IMAGE'
 
 export interface Post extends Schema {
 	writer: User
@@ -29,7 +35,7 @@ export interface CreatePostRequest {
 	title: string
 	sub_title: string
 	content: string
-	thumb_nail_image?: CreatePostImage
+	thumb_nail_image?: CreatePostImageRequest
 }
 
 export interface GetPostsParams extends PagingQueryParams {
@@ -45,9 +51,11 @@ export interface GetPostParams {
 
 export interface UpdatePostRequest {
 	id: ID
+	tag_ids?: ID[]
 	title?: string
 	sub_title?: string
 	content?: string
+	thumb_nail_image?: UpdatePostImageRequest
 	update_mask: PostUpdateMask[]
 }
 
@@ -70,10 +78,11 @@ export const useGetPosts = (params?: GetPostsParams) => {
 	})
 }
 
-export const useGetPost = (params: GetPostParams) => {
+export const useGetPost = (params: GetPostParams, enabled = true) => {
 	return useQuery({
 		queryKey: [toUrl(ApiV1Paths.POSTS, { id: params.id })],
 		queryFn: () => Api.get<Post>(toUrl(ApiV1Paths.POSTS, { id: params.id })),
+		enabled,
 	})
 }
 
