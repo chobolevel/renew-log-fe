@@ -4,6 +4,7 @@ import {
 	Image,
 	Input,
 	Separator,
+	Text,
 	Textarea,
 } from '@chakra-ui/react'
 import { ID, Post, UpdatePostRequest, useGetTags, useUpdatePost } from '@/apis'
@@ -171,7 +172,12 @@ const EditPostForm = ({ post }: EditPostFormProps) => {
 					</SelectContent>
 				</SelectRoot>
 			</Flex>
-			<Flex align={'end'} justify={'space-between'} gap={10}>
+			<Flex
+				direction={{ base: 'column', lg: 'row' }}
+				align={{ base: 'none', lg: 'end' }}
+				justify={'space-between'}
+				gap={10}
+			>
 				<Flex direction={'column'} gap={6} flex={1}>
 					<Flex direction={'column'} gap={2}>
 						<Input
@@ -192,6 +198,7 @@ const EditPostForm = ({ post }: EditPostFormProps) => {
 					</Flex>
 					<Flex direction={'column'} gap={2}>
 						<Textarea
+							minH={100}
 							placeholder={'부제목'}
 							{...register('sub_title', {
 								required: '부제목이 입력되지 않았습니다.',
@@ -206,7 +213,7 @@ const EditPostForm = ({ post }: EditPostFormProps) => {
 						/>
 					</Flex>
 				</Flex>
-				<Flex>
+				<Flex direction={'column'} gap={2}>
 					<ImageUploader
 						inputRef={thumbNailImageRef}
 						onUpload={(url, filename, width, height) => {
@@ -219,28 +226,39 @@ const EditPostForm = ({ post }: EditPostFormProps) => {
 							})
 						}}
 					/>
-					{watch('thumb_nail_image') ? (
-						<Image
-							src={watch('thumb_nail_image.url')}
-							alt={'게시글 섬네일 이미지'}
-							w={200}
-							h={100}
-							cursor={'pointer'}
-							onClick={() => {
-								setValue('thumb_nail_image', undefined)
-							}}
-						/>
-					) : (
-						<Button
-							w={200}
-							h={100}
-							onClick={() => {
-								thumbNailImageRef.current?.click()
-							}}
-						>
-							<LuImagePlus size={30} />
-						</Button>
-					)}
+					<Text textAlign={'center'} fontSize={'sm'} fontWeight={'bold'}>
+						섬네일
+					</Text>
+					<Flex
+						direction={'column'}
+						w={{ base: '100%', lg: 220 }}
+						h={120}
+						overflow={'hidden'}
+					>
+						{watch('thumb_nail_image') ? (
+							<Image
+								src={watch('thumb_nail_image.url')}
+								alt={'게시글 섬네일 이미지'}
+								w={'100%'}
+								h={'100%'}
+								cursor={'pointer'}
+								onClick={() => {
+									setValue('thumb_nail_image', undefined)
+								}}
+							/>
+						) : (
+							<Button
+								w={'100%'}
+								h={'100%'}
+								variant={'outline'}
+								onClick={() => {
+									thumbNailImageRef.current?.click()
+								}}
+							>
+								<LuImagePlus size={30} />
+							</Button>
+						)}
+					</Flex>
 				</Flex>
 			</Flex>
 			<Separator />

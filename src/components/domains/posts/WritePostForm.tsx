@@ -151,7 +151,12 @@ const WritePostForm = () => {
 					</SelectContent>
 				</SelectRoot>
 			</Flex>
-			<Flex align={'end'} justify={'space-between'} gap={10}>
+			<Flex
+				direction={{ base: 'column', lg: 'row' }}
+				align={{ base: 'none', lg: 'end' }}
+				justify={'space-between'}
+				gap={10}
+			>
 				<Flex direction={'column'} gap={6} flex={1}>
 					<Flex direction={'column'} gap={2}>
 						<Input
@@ -203,7 +208,12 @@ const WritePostForm = () => {
 					<Text textAlign={'center'} fontSize={'sm'} fontWeight={'bold'}>
 						섬네일
 					</Text>
-					<Flex direction={'column'} w={220} h={120} overflow={'hidden'}>
+					<Flex
+						direction={'column'}
+						w={{ base: '100%', lg: 220 }}
+						h={120}
+						overflow={'hidden'}
+					>
 						{watch('thumb_nail_image') ? (
 							<Image
 								src={watch('thumb_nail_image.url')}
