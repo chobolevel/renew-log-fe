@@ -43,7 +43,7 @@ const PostDetail = ({ post }: PostDetailProps) => {
 							if (!navigator.share) {
 								toaster.create({
 									type: 'error',
-									title: '현재 환경에서는 공유기능을 제고하지 않습니다.',
+									title: '현재 환경에서는 공유기능을 제공하지 않습니다.',
 								})
 								return
 							}
@@ -60,7 +60,13 @@ const PostDetail = ({ post }: PostDetailProps) => {
 			<Prose minW={'100%'} dangerouslySetInnerHTML={{ __html: post.content }} />
 			{isWriter && (
 				<Flex align={'center'} justify={'end'} gap={2}>
-					<Button colorPalette={'green'} fontWeight={'bold'}>
+					<Button
+						colorPalette={'green'}
+						fontWeight={'bold'}
+						onClick={() => {
+							router.push(toUrl(PagePaths.EDIT_POST, { id: post.id }))
+						}}
+					>
 						수정
 					</Button>
 					<Button
