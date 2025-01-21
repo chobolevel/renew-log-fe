@@ -1,4 +1,4 @@
-import { images } from '@/constants'
+import { images, PagePaths, toUrl } from '@/constants'
 import Head from 'next/head'
 import {
 	EmptyState,
@@ -14,10 +14,12 @@ import { Flex, Spinner, Text } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import { HiPencilAlt } from 'react-icons/hi'
 import { MdArticle } from 'react-icons/md'
+import { useRouter } from 'next/router'
 
 const LIMIT_COUNT = 6
 
 const PostListPage = () => {
+	const router = useRouter()
 	const [page, setPage] = useState<number>(1)
 
 	const { data: posts, isFetching } = useGetPosts({
@@ -113,6 +115,9 @@ const PostListPage = () => {
 					bgColor={'point'}
 					color={'white'}
 					cursor={'pointer'}
+					onClick={() => {
+						router.push(toUrl(PagePaths.WRITE_POST))
+					}}
 				>
 					<HiPencilAlt size={24} />
 				</Flex>
