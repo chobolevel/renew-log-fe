@@ -20,6 +20,7 @@ import {
 	Image,
 	Input,
 	Separator,
+	Text,
 	Textarea,
 } from '@chakra-ui/react'
 import { ErrorMessage } from '@hookform/error-message'
@@ -171,6 +172,7 @@ const WritePostForm = () => {
 					</Flex>
 					<Flex direction={'column'} gap={2}>
 						<Textarea
+							minH={100}
 							placeholder={'부제목'}
 							{...register('sub_title', {
 								required: '부제목이 입력되지 않았습니다.',
@@ -185,7 +187,7 @@ const WritePostForm = () => {
 						/>
 					</Flex>
 				</Flex>
-				<Flex>
+				<Flex direction={'column'} gap={2}>
 					<ImageUploader
 						inputRef={thumbNailImageRef}
 						onUpload={(url, filename, width, height) => {
@@ -198,28 +200,34 @@ const WritePostForm = () => {
 							})
 						}}
 					/>
-					{watch('thumb_nail_image') ? (
-						<Image
-							src={watch('thumb_nail_image.url')}
-							alt={'게시글 섬네일 이미지'}
-							w={200}
-							h={100}
-							cursor={'pointer'}
-							onClick={() => {
-								setValue('thumb_nail_image', undefined)
-							}}
-						/>
-					) : (
-						<Button
-							w={200}
-							h={100}
-							onClick={() => {
-								thumbNailImageRef.current?.click()
-							}}
-						>
-							<LuImagePlus size={30} />
-						</Button>
-					)}
+					<Text textAlign={'center'} fontSize={'sm'} fontWeight={'bold'}>
+						섬네일
+					</Text>
+					<Flex direction={'column'} w={220} h={120} overflow={'hidden'}>
+						{watch('thumb_nail_image') ? (
+							<Image
+								src={watch('thumb_nail_image.url')}
+								alt={'게시글 섬네일 이미지'}
+								w={'100%'}
+								h={'100%'}
+								cursor={'pointer'}
+								onClick={() => {
+									setValue('thumb_nail_image', undefined)
+								}}
+							/>
+						) : (
+							<Button
+								w={'100%'}
+								h={'100%'}
+								variant={'outline'}
+								onClick={() => {
+									thumbNailImageRef.current?.click()
+								}}
+							>
+								<LuImagePlus size={30} />
+							</Button>
+						)}
+					</Flex>
 				</Flex>
 			</Flex>
 			<Separator />
