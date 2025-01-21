@@ -1,8 +1,16 @@
 import Head from 'next/head'
 import { images } from '@/constants'
-import { CenterTagList, PostList, ResponsiveLayout } from '@/components'
+import {
+	CenterTagList,
+	EmptyState,
+	PostList,
+	ResponsiveLayout,
+} from '@/components'
 import { useGetPosts, useGetTags } from '@/apis'
 import { Flex, Spinner, Text } from '@chakra-ui/react'
+import { FaHashtag } from 'react-icons/fa'
+import React from 'react'
+import { MdArticle } from 'react-icons/md'
 
 const Home = () => {
 	const { data: tags, isFetching: isTagsFetching } = useGetTags({
@@ -65,13 +73,18 @@ const Home = () => {
 					{tags ? (
 						<CenterTagList tags={tags.data} />
 					) : (
-						<Flex h={300} align={'center'} justify={'center'}>
+						<>
 							{isTagsFetching ? (
-								<Spinner size={'lg'} />
+								<Flex h={300} align={'center'} justify={'center'}>
+									<Spinner size={'lg'} />
+								</Flex>
 							) : (
-								<Text>태그를 찾을 수 없습니다.</Text>
+								<EmptyState
+									icon={<FaHashtag size={20} />}
+									title={'태그를 찾을 수 없습니다.'}
+								/>
 							)}
-						</Flex>
+						</>
 					)}
 				</Flex>
 				<Flex direction={'column'} gap={2}>
@@ -81,13 +94,18 @@ const Home = () => {
 					{posts ? (
 						<PostList posts={posts.data} />
 					) : (
-						<Flex h={300} align={'center'} justify={'center'}>
+						<>
 							{isPostsFetching ? (
-								<Spinner size={'lg'} />
+								<Flex h={300} align={'center'} justify={'center'}>
+									<Spinner size={'lg'} />
+								</Flex>
 							) : (
-								<Text>게시글을 찾을 수 없습니다</Text>
+								<EmptyState
+									icon={<MdArticle size={20} />}
+									title={'게시글을 찾을 수 없습니다.'}
+								/>
 							)}
-						</Flex>
+						</>
 					)}
 				</Flex>
 			</ResponsiveLayout>
