@@ -1,12 +1,20 @@
-import { Button, Flex, Separator, Text } from '@chakra-ui/react'
-import { Avatar, Prose, TagList, toaster } from '@/components'
+import { Button, Flex, Separator, Spinner, Text } from '@chakra-ui/react'
+import {
+	Avatar,
+	EmptyState,
+	PostCommentList,
+	Prose,
+	TagList,
+	toaster,
+} from '@/components'
 import React, { useMemo } from 'react'
-import { Post, useDeletePost, useGetMe } from '@/apis'
+import { Post, useDeletePost, useGetMe, useGetPostComments } from '@/apis'
 import moment from 'moment/moment'
 import { IoShareSocialSharp } from 'react-icons/io5'
 import { useConfirm } from '@/store'
 import { useRouter } from 'next/router'
 import { PagePaths, toUrl } from '@/constants'
+import { FaCommentDots } from 'react-icons/fa'
 
 interface PostDetailProps {
 	post: Post
@@ -17,6 +25,11 @@ const PostDetail = ({ post }: PostDetailProps) => {
 	const { open } = useConfirm()
 
 	const { data: me } = useGetMe()
+	const { data: postComments, isFetching: isPostCommentsFetching } =
+		useGetPostComments({
+			postId: post.id,
+			orderTypes: ['CREATED_AT_DESC'],
+		})
 	const { mutate: deletePost } = useDeletePost()
 
 	const writtenAt = useMemo(
@@ -71,6 +84,25 @@ const PostDetail = ({ post }: PostDetailProps) => {
 			</Flex>
 			<Separator />
 			<Prose minW={'100%'} dangerouslySetInnerHTML={{ __html: post.content }} />
+			<Flex direction={'column'} gap={2}>
+				<Text fontWeight={'bold'}>{`댓글(${postComments?.total_count})`}</Text>
+				{postComments ? (
+					<PostCommentList postComments={postComments.data} />
+				) : (
+					<>
+						{isPostCommentsFetching ? (
+							<Flex h={300} align={'center'} justify={'center'}>
+								<Spinner size={'lg'} />
+							</Flex>
+						) : (
+							<EmptyState
+								icon={<FaCommentDots />}
+								title={'댓글을 찾을 수 없습니다.'}
+							/>
+						)}
+					</>
+				)}
+			</Flex>
 			{isWriter && (
 				<Flex align={'center'} justify={'end'} gap={2}>
 					<Button

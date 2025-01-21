@@ -13,7 +13,7 @@ export type PostCommentOrderType = 'CREATED_AT_ASC' | 'CREATED_AT_DESC'
 export type PostCommentUpdateMask = 'CONTENT'
 
 export interface PostComment extends Schema {
-	write: User
+	writer: User
 	content: string
 }
 
