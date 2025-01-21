@@ -34,4 +34,7 @@ export enum PagePaths {
 	EDIT_POST = '/posts/:id/edit',
 
 	TAGS = '/tags',
+
+	LOGGERS = '/loggers',
+	LOGGER_DETAIL = '/loggers/:id',
 }

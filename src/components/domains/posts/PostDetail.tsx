@@ -1,5 +1,5 @@
 import { Button, Flex, Separator, Text } from '@chakra-ui/react'
-import { Prose, TagList, toaster } from '@/components'
+import { Avatar, Prose, TagList, toaster } from '@/components'
 import React, { useMemo } from 'react'
 import { Post, useDeletePost, useGetMe } from '@/apis'
 import moment from 'moment/moment'
@@ -24,6 +24,7 @@ const PostDetail = ({ post }: PostDetailProps) => {
 		[post],
 	)
 	const isWriter = useMemo(() => post.writer.id === me?.id, [post, me])
+	const writer = useMemo(() => post.writer, [post])
 	return (
 		<Flex direction={'column'} gap={6} py={6}>
 			<TagList tags={post.tags} />
@@ -32,6 +33,18 @@ const PostDetail = ({ post }: PostDetailProps) => {
 					{post.title}
 				</Text>
 				<Text>{post.sub_title}</Text>
+				<Flex align={'center'} gap={2}>
+					<Avatar size={'xs'} src={writer.profile_image?.origin_url} />
+					<Text
+						fontWeight={'bold'}
+						cursor={'pointer'}
+						onClick={() => {
+							router.push(toUrl(PagePaths.LOGGER_DETAIL, { id: writer.id }))
+						}}
+					>
+						{writer.nickname}
+					</Text>
+				</Flex>
 				<Flex align={'center'} gap={2}>
 					<Text fontSize={'sm'} color={'gray'}>
 						{writtenAt}
