@@ -42,6 +42,7 @@ export interface GetPostsParams extends PagingQueryParams {
 	tagId?: ID
 	title?: string
 	subTitle?: string
+	userId?: ID
 	orderTypes?: PostOrderType[]
 }
 

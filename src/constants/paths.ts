@@ -16,6 +16,8 @@ export enum ApiV1Paths {
 
 	POSTS = '/api/v1/posts/:id?',
 
+	POST_COMMENTS = '/api/v1/posts/comments/:id?',
+
 	TAGS = '/api/v1/tags',
 }
 
