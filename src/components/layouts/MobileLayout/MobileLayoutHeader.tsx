@@ -51,7 +51,7 @@ const MobileLayoutHeader = () => {
 								<MenuItem
 									value={'profile'}
 									onClick={() => {
-										router.push(toUrl(PagePaths.HOME))
+										router.push(toUrl(PagePaths.MyProfile))
 									}}
 								>
 									<Flex align={'center'} gap={2}>

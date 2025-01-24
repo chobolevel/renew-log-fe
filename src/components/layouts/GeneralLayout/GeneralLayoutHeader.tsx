@@ -10,7 +10,7 @@ import {
 import { useGetMe, useLogout } from '@/apis'
 import { useMemo } from 'react'
 import Link from 'next/link'
-import { PagePaths } from '@/constants'
+import { PagePaths, toUrl } from '@/constants'
 import { match } from 'path-to-regexp'
 import { useRouter } from 'next/router'
 
@@ -85,7 +85,14 @@ const GeneralLayoutHeader = () => {
 								<Avatar src={profileImage?.origin_url} cursor={'pointer'} />
 							</MenuTrigger>
 							<MenuContent>
-								<MenuItem value={'my-page'}>마이페이지</MenuItem>
+								<MenuItem
+									value={'my-page'}
+									onClick={() => {
+										router.push(toUrl(PagePaths.MyProfile))
+									}}
+								>
+									마이페이지
+								</MenuItem>
 								<MenuItem
 									value={'logout'}
 									onClick={() => {

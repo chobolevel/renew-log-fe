@@ -1,4 +1,5 @@
 export * from './auth'
+export * from './my'
 export * from './posts'
 export * from './tags'
 export * from './users'
