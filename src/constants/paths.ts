@@ -12,6 +12,7 @@ export enum ApiV1Paths {
 
 	ME = '/api/v1/users/me',
 	USERS = '/api/v1/users/:id?',
+	CHANGE_USER_PASSWORD = '/api/v1/users/change-password',
 	USERS_IMAGES = '/api/v1/users/images/:id?',
 
 	POSTS = '/api/v1/posts/:id?',

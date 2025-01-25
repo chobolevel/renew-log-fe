@@ -56,6 +56,12 @@ export interface UpdateUserRequest {
 	update_mask: UserUpdateMask[]
 }
 
+export interface ChangeUserPasswordRequest {
+	cur_password: string
+	new_password: string
+	check_user_password: string
+}
+
 export interface ResignUserRequest {
 	id: ID
 }
@@ -93,6 +99,13 @@ export const useUpdateUser = () => {
 	return useMutation({
 		mutationFn: (request: UpdateUserRequest) =>
 			Api.put<ID>(toUrl(ApiV1Paths.USERS, { id: request.id }), request),
+	})
+}
+
+export const useChangeUserPassword = () => {
+	return useMutation({
+		mutationFn: (request: ChangeUserPasswordRequest) =>
+			Api.put<ID>(toUrl(ApiV1Paths.CHANGE_USER_PASSWORD), request),
 	})
 }
 
