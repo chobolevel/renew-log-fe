@@ -39,5 +39,6 @@ export enum PagePaths {
 	LOGGERS = '/loggers',
 	LOGGER_DETAIL = '/loggers/:id',
 
-	MyProfile = '/my/profile',
+	MY_PROFILE = '/my/profile',
+	MY_CHANGE_PASSWORD = '/my/change-password',
 }

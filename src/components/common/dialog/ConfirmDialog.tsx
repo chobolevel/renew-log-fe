@@ -20,7 +20,9 @@ const ConfirmDialog = () => {
 				</DialogHeader>
 				<DialogBody>
 					<Flex direction={'column'} gap={6}>
-						<Text>{description}</Text>
+						<Text whiteSpace={'break-spaces'} textAlign={'center'}>
+							{description}
+						</Text>
 						<Flex align={'center'} justify={'end'} gap={2}>
 							<Button
 								colorPalette={'green'}

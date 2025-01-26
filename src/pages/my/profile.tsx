@@ -14,7 +14,7 @@ const MyProfilePage = () => {
 				<meta name={'title'} content={'나의 프로필 -TIL'} />
 				<meta
 					name={'description'}
-					content={'TIL(Today I Logged)에서 내 프로픽을 확인하고 수정해보세요.'}
+					content={'TIL(Today I Logged)에서 내 프로필을 확인하고 수정해보세요.'}
 				/>
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<meta name="robots" content="index, follow" />
@@ -24,7 +24,7 @@ const MyProfilePage = () => {
 				<meta property={'og:title'} content={'나의 프로필 - TIL'} />
 				<meta
 					property={'og:description'}
-					content={'TIL(Today I Logged)에서 내 프로픽을 확인하고 수정해보세요.'}
+					content={'TIL(Today I Logged)에서 내 프로필을 확인하고 수정해보세요.'}
 				/>
 				<meta
 					property={'og:url'}
@@ -39,7 +39,7 @@ const MyProfilePage = () => {
 				<meta name={'twitter:title'} content={'나의 프로필 - TIL'} />
 				<meta
 					name={'twitter:description'}
-					content={'TIL(Today I Logged)에서 내 프로픽을 확인하고 수정해보세요.'}
+					content={'TIL(Today I Logged)에서 내 프로필을 확인하고 수정해보세요.'}
 				/>
 				<meta name={'twitter:image'} content={images.logo.src} />
 			</Head>

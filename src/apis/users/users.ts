@@ -51,7 +51,6 @@ export interface GetUserParams {
 }
 
 export interface UpdateUserRequest {
-	id: ID
 	nickname?: string
 	update_mask: UserUpdateMask[]
 }
@@ -59,7 +58,7 @@ export interface UpdateUserRequest {
 export interface ChangeUserPasswordRequest {
 	cur_password: string
 	new_password: string
-	check_user_password: string
+	check_new_password: string
 }
 
 export interface ResignUserRequest {
@@ -95,10 +94,10 @@ export const useGetUser = (params: GetUserParams) => {
 	})
 }
 
-export const useUpdateUser = () => {
+export const useUpdateMe = () => {
 	return useMutation({
 		mutationFn: (request: UpdateUserRequest) =>
-			Api.put<ID>(toUrl(ApiV1Paths.USERS, { id: request.id }), request),
+			Api.put<ID>(toUrl(ApiV1Paths.ME), request),
 	})
 }
 

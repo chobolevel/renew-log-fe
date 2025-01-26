@@ -65,7 +65,7 @@ const SignUpForm = () => {
 					{...register('email', {
 						required: '아이디(이메일)이 입력되지 않았습니다.',
 						pattern: {
-							value: /^[a-zA-Z0-9+-\\_.]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+\$/,
+							value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
 							message: '이메일 형식이 올바르지 않습니다.',
 						},
 					})}

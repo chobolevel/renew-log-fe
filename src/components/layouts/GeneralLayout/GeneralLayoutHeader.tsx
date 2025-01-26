@@ -88,7 +88,7 @@ const GeneralLayoutHeader = () => {
 								<MenuItem
 									value={'my-page'}
 									onClick={() => {
-										router.push(toUrl(PagePaths.MyProfile))
+										router.push(toUrl(PagePaths.MY_PROFILE))
 									}}
 								>
 									마이페이지
