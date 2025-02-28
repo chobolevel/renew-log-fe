@@ -7,6 +7,7 @@ import {
 	InputErrorMessage,
 	InputLabel,
 	Logo,
+	SocialButtons,
 	toaster,
 } from '@/components'
 import { ErrorMessage } from '@hookform/error-message'
@@ -56,6 +57,7 @@ const SignUpForm = () => {
 					회원가입
 				</Text>
 			</Flex>
+			<SocialButtons />
 			<Flex direction={'column'} gap={2}>
 				<InputLabel>아이디(이메일)</InputLabel>
 				<Input
