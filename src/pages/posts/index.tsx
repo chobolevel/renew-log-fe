@@ -16,7 +16,7 @@ import { HiPencilAlt } from 'react-icons/hi'
 import { MdArticle } from 'react-icons/md'
 import { useRouter } from 'next/router'
 
-const LIMIT_COUNT = 6
+const LIMIT_COUNT = 12
 
 const PostListPage = () => {
 	const router = useRouter()
