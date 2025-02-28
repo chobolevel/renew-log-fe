@@ -11,7 +11,7 @@ const PostCommentList = ({ postComments }: PostCommentListProps) => {
 	return (
 		<>
 			{postComments.length > 0 ? (
-				<Flex direction={'column'}>
+				<Flex direction={'column'} gap={4}>
 					{postComments.map((postComment, idx) => {
 						return <PostCommentListItem key={idx} postComment={postComment} />
 					})}

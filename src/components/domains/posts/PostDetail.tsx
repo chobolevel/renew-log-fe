@@ -6,6 +6,7 @@ import {
 	Prose,
 	TagList,
 	toaster,
+	WriterPostCommentForm,
 } from '@/components'
 import React, { useMemo } from 'react'
 import { Post, useDeletePost, useGetMe, useGetPostComments } from '@/apis'
@@ -84,10 +85,13 @@ const PostDetail = ({ post }: PostDetailProps) => {
 			</Flex>
 			<Separator />
 			<Prose minW={'100%'} dangerouslySetInnerHTML={{ __html: post.content }} />
-			<Flex direction={'column'} gap={2}>
+			<Flex direction={'column'} gap={4}>
 				<Text fontWeight={'bold'}>{`댓글(${postComments?.total_count})`}</Text>
 				{postComments ? (
-					<PostCommentList postComments={postComments.data} />
+					<>
+						<WriterPostCommentForm post={post} />
+						<PostCommentList postComments={postComments.data} />
+					</>
 				) : (
 					<>
 						{isPostCommentsFetching ? (
